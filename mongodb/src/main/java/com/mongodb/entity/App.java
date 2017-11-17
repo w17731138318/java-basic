@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +21,7 @@ public class App
 	private String apiKey;
 	private String appname;
 	private List<Object> activities;
+	private Date createTime;
 
 	public App() {
 	}
@@ -62,6 +64,14 @@ public class App
 		this.activities = activities;
 	}
 
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
 	@Override
 	public String toString() {
 		return "App{" +
@@ -69,6 +79,7 @@ public class App
 				", apiKey='" + apiKey + '\'' +
 				", appname='" + appname + '\'' +
 				", activities=" + activities +
+				", createTime=" + createTime +
 				'}';
 	}
 }

@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class AppRepositoryTest {
 	@Test
 	public void appRepositorySaveTest() {
 		App app = new App("bbb", "APP名字1", null);
+		app.setCreateTime(new Date());
 		appRepository.save(app);
 	}
 
@@ -55,13 +57,19 @@ public class AppRepositoryTest {
 
 	@Test
 	public void appRepositoryFindOneByApiKeyTest() {
-		App app = appRepository.findOneByApiKey("aaa");
+		App app = appRepository.findOneByApiKey("bbb");
 		System.out.println(app);
 	}
 
 	@Test
+	public void appRepositoryFindByApiKeyTest() {
+		List<App> list = appRepository.findByApiKey("bbb");
+		list.stream().forEach(System.out::println);
+	}
+
+	@Test
 	public void appRepositoryFindOneTest() {
-		App app = appRepository.findOne(new ObjectId("5a0d50eddaced418f8a7e5a8"));
+		App app = appRepository.findOne(new ObjectId("5a0d6196daced4182887422f"));
 		System.out.println(app);
 	}
 
