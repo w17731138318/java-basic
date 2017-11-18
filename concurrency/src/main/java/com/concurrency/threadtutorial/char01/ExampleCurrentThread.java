@@ -1,7 +1,10 @@
 package com.concurrency.threadtutorial.char01;
 
 /**
- * Created by Administrator on 2017/11/17.
+ * 打印：
+ * 构造方法的打印：main
+ * run方法的打印：Thread-0
+ *
  */
 public class ExampleCurrentThread extends Thread {
 	public ExampleCurrentThread() {
