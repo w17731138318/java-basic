@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/sockjs.min.js"></script>
+    <script src="js/stomp.min.js"></script>
+    <script src="js/main1.js"></script>
+</head>
+<!--加载页面时，默认断开连接-->
+<body onload="disconnect()">
+<h1>hello websocket client !!</h1>
+<div>
+    <!--点击连接-->
+    <button id="connect" onclick="connect();">连接</button>
+    <!--断开连接-->
+    <button id="disconnect" disabled="disabled" onclick="disconnect();">断开连接</button>
+</div>
+<div id="conversationDiv">
+    <label>输入消息</label><input type="text" id="msg"/>
+    <button onclick="sendName();">精准推送</button>
+    <button onclick="sendAllName();">广播推送</button>
+    <p id="response"></p>
+</div>
+</body>
+</html>

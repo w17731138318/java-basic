@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/sockjs.min.js"></script>
+    <script src="js/stomp.min.js"></script>
+</head>
+<!--加载页面时，默认断开连接-->
+<body>
+<h1>hello websocket client !!</h1>
+<p id="response"></p>
+<script>
+    var socket = new SockJS('/webSocketStompEndpoint');
+    var stompClient = Stomp.over(socket);
+    stompClient.connect({}, function(frame) {
+        stompClient.subscribe('/user/topic/greetings1', function (respnose) {
+            console.log(respnose);
+            var response = $("#response");
+            response.html(JSON.parse(respnose.body).msg);
+        });
+    });
+</script>
+</body>
+</html>
