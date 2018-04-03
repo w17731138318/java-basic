@@ -43,6 +43,7 @@ public class WsController {
 	@MessageMapping("handle1")
 	@SendToUser(value = "/topic/greetings1",broadcast = false)
 	public Message handle1(Message message) {
+		messageService.save(message);
 		System.out.println("handle1："+message.getMsg());
 		return new Message("消息已收到，内容为：精准推送，只推送到1");
 	}
@@ -56,6 +57,7 @@ public class WsController {
 	@MessageMapping("handle2")
 	@SendTo("/topic/greetings2")
 	public Message handle2(Message message) {
+		messageService.save(message);
 		System.out.println("handle2："+message.getMsg());
 		return new Message("广播推送，所有用户都收得到");
 	}
