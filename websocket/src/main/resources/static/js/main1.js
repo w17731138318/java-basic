@@ -14,7 +14,6 @@ function connect() {
         setConnected(true);
         console.log('开始进行连接Connected: ' + frame);
         stompClient.subscribe('/user/topic/greetings1', function (respnose) {
-            console.log(respnose);
             showResponse(JSON.parse(respnose.body).msg);
         });
         // stompClient.subscribe('/topic/greetings2', function (respnose) {
@@ -43,7 +42,9 @@ function sendAllName() {
 }
 
 function showResponse(message) {
-    console.log(message);
+    /**
+     * 显示返回信息Response
+     */
     var response = $("#response");
     response.html(message);
 }
