@@ -16,10 +16,10 @@ function connect() {
         stompClient.subscribe('/user/topic/greetings1', function (respnose) {
             showResponse(JSON.parse(respnose.body).msg);
         });
-        // stompClient.subscribe('/topic/greetings2', function (respnose) {
-        //     console.log(respnose);
-        //     showResponse(JSON.parse(respnose.body).msg);
-        // });
+        stompClient.subscribe('/topic/greetings2', function (respnose) {
+            console.log(respnose);
+            showResponse(JSON.parse(respnose.body).msg);
+        });
     });
 }
 
